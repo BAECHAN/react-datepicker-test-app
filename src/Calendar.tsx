@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import { format } from 'date-fns';
-import DatePicker from 'react-datepicker';
-import './styles.css';
+import React, { useState } from "react";
+import { format } from "date-fns";
+import DatePicker from "react-datepicker";
+import "./styles.css";
 
 export const Calendar = () => {
   const [startDate, setStartDate] = useState<Date | null>(null);
@@ -9,12 +9,12 @@ export const Calendar = () => {
 
   return (
     <div className="calendar-container">
-      <div className="calendar-header">Jan 2025</div>
-      {startDate && endDate && (
-        <div className="selected-range">
-          {format(startDate, 'M월 d일')} → {format(endDate, 'M월 d일')}
-        </div>
-      )}
+      <div className="calendar-header">
+        {startDate &&
+          endDate &&
+          `${format(startDate, "M월 d일")} ~ ${format(endDate, "M월 d일")}`}
+      </div>
+
       <DatePicker
         selected={startDate}
         onChange={(dates) => {
